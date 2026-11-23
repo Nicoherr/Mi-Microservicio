@@ -20,9 +20,9 @@ class GlobalExceptionHandler {
 
     private val log = LoggerFactory.getLogger(GlobalExceptionHandler::class.java)
 
-    @ExceptionHandler(ProductNotFoundException::class)
-    fun handleProductNotFound(ex: ProductNotFoundException): ResponseEntity<ErrorResponse> {
-        log.warn("Manejando ProductNotFoundException: {}", ex.message)
+    @ExceptionHandler(ProductNotFoundException::class, NoSuchElementException::class)
+    fun handleProductNotFound(ex: Exception): ResponseEntity<ErrorResponse> {
+        log.warn("Manejando excepción de recurso no encontrado: {}", ex.message)
         val error = ErrorResponse(
             status = HttpStatus.NOT_FOUND.value(),
             error = HttpStatus.NOT_FOUND.reasonPhrase,
