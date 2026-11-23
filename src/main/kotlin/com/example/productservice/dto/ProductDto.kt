@@ -3,13 +3,16 @@ package com.example.productservice.dto
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
+import jakarta.validation.constraints.Size
 import java.math.BigDecimal
 
 data class CreateProductRequest(
     @field:NotBlank(message = "El nombre del producto no puede estar vacío")
+    @field:Size(min = 3, max = 100, message = "El nombre debe tener entre 3 y 100 caracteres")
     val name: String,
 
     @field:NotBlank(message = "La descripción no puede estar vacía")
+    @field:Size(min = 5, max = 500, message = "La descripción debe tener entre 5 y 500 caracteres")
     val description: String,
 
     @field:NotNull(message = "El precio es obligatorio")
