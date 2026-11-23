@@ -6,7 +6,7 @@ import com.example.productservice.exception.ProductNotFoundException
 import com.example.productservice.metrics.CustomMetrics
 import com.example.productservice.model.Product
 import com.example.productservice.repository.ProductRepository
-import org.slf.LoggerFactory
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
