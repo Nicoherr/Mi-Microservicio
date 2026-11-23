@@ -66,6 +66,17 @@ class ProductServiceTest {
     }
 
     @Test
+    fun `searchProductsByName debe retornar productos filtrados por nombre`() {
+        every { productRepository.findByNameContainingIgnoreCase("Gaming") } returns listOf(sampleProduct)
+
+        val result = productService.searchProductsByName("Gaming")
+
+        assertEquals(1, result.size)
+        assertEquals("Laptop Gaming", result[0].name)
+        verify(exactly = 1) { productRepository.findByNameContainingIgnoreCase("Gaming") }
+    }
+
+    @Test
     fun `getProductById cuando el producto existe debe retornar el DTO`() {
         every { productRepository.findById(1L) } returns Optional.of(sampleProduct)
 
