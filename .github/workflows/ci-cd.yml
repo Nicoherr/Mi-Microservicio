@@ -52,25 +52,26 @@ jobs:
           args: >
             -Dsonar.qualitygate.wait=true
 
-      # Paso 4: Escaneo de Seguridad de Dependencias con Snyk
+      # Paso 4: Configuración de Snyk CLI y Escaneo de Seguridad de Dependencias
+      - name: Setup Snyk CLI
+        uses: snyk/actions/setup@master
+
       - name: 4. Snyk Dependency Security Scan
-        uses: snyk/actions/gradle@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
+        run: |
+          snyk test --severity-threshold=high
+          snyk monitor || true
 
-      # Paso 5: Construcción de Imagen Docker y Escaneo de Contenedor con Snyk
+      # Paso 5: Construcción de Imagen Docker y Escaneo de Contenedor con Snyk CLI
       - name: 5. Build Docker Image
         run: docker build -t product-service:latest .
 
       - name: Snyk Container Image Security Scan
-        uses: snyk/actions/docker@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          image: product-service:latest
-          args: --severity-threshold=high
+        run: |
+          snyk container test product-service:latest --file=Dockerfile --severity-threshold=high
 
       # Paso 6: Despliegue Simulado con Docker Compose y Verificación de Endpoint Health (HTTP 200)
       - name: 6. Simulated Deployment with Docker Compose
