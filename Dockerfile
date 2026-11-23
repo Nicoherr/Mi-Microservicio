@@ -13,7 +13,7 @@ COPY src src
 RUN gradle bootJar --no-daemon -x test
 
 # Stage 2: Runtime image lightweight & secure
-FROM eclipse-temurin:17-jre-alpine AS runner
+FROM eclipse-temurin:24-jre-alpine AS runner
 WORKDIR /app
 
 # Create non-root user and group
