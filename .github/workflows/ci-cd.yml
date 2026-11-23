@@ -15,7 +15,7 @@ jobs:
     name: Continuous Integration, Security & Deployment Pipeline
     runs-on: ubuntu-latest
     steps:
-      # Paso 1: Checkout del código y configuración de Java 17 + Gradle 8.7 (sin gradlew)
+      # Paso 1: Checkout del código y configuración de Java 17 + Gradle 8.14
       - name: 1. Checkout Source Code
         uses: actions/checkout@v4
         with:
@@ -35,6 +35,9 @@ jobs:
       # Paso 2: Compilación, Pruebas Unitarias y Generación de Reporte JaCoCo
       - name: 2. Run Tests & Generate JaCoCo Coverage Report
         run: gradle test jacocoTestReport --info
+
+      - name: Verify JaCoCo Coverage Report Exists
+        run: ls -lh build/reports/jacoco/test/jacocoTestReport.xml
 
       - name: Upload JaCoCo Coverage Artifact
         uses: actions/upload-artifact@v4
