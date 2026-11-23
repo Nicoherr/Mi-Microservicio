@@ -27,10 +27,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Setup Gradle 8.7
+      - name: Setup Gradle 8.14
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.7'
+          gradle-version: '8.14'
 
       # Paso 2: Compilación, Pruebas Unitarias y Generación de Reporte JaCoCo
       - name: 2. Run Tests & Generate JaCoCo Coverage Report

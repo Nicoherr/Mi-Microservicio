@@ -1,7 +1,7 @@
 # Multi-stage Dockerfile para optimización de imagen y seguridad
 
 # Stage 1: Build application usando imagen base con Gradle instalado
-FROM gradle:8.7-jdk17-alpine AS builder
+FROM gradle:8.14-jdk17-alpine AS builder
 WORKDIR /app
 
 # Copy gradle configuration files first for caching
