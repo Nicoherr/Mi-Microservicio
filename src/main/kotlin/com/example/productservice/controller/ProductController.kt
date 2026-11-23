@@ -27,6 +27,11 @@ class ProductController(
         return ResponseEntity.ok(productService.getAllProducts())
     }
 
+    @GetMapping("/search")
+    fun searchProductsByName(@RequestParam name: String): ResponseEntity<List<ProductResponse>> {
+        return ResponseEntity.ok(productService.searchProductsByName(name))
+    }
+
     @GetMapping("/{id}")
     fun getProductById(@PathVariable id: Long): ResponseEntity<ProductResponse> {
         return ResponseEntity.ok(productService.getProductById(id))

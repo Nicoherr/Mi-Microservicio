@@ -24,6 +24,12 @@ class ProductService(
     }
 
     @Transactional(readOnly = true)
+    fun searchProductsByName(name: String): List<ProductResponse> {
+        log.info("Buscando productos que contengan en el nombre: {}", name)
+        return productRepository.findByNameContainingIgnoreCase(name).map { it.toResponse() }
+    }
+
+    @Transactional(readOnly = true)
     fun getProductById(id: Long): ProductResponse {
         log.info("Buscando producto con id: {}", id)
         val product = productRepository.findById(id).orElseThrow {
