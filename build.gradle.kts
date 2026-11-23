@@ -36,11 +36,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     // Testing
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(group = "org.mockito", module = "mockito-core")
-    }
-    testImplementation("io.mockk:mockk:1.13.10")
-    testImplementation("com.ninja-squad:spring-mockk:4.0.2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.13.12")
 }
 
 tasks.withType<KotlinCompile> {
