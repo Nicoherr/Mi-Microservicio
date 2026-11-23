@@ -60,4 +60,17 @@ tasks.jacocoTestReport {
         html.required.set(true)
         xml.outputLocation.set(layout.buildDirectory.file("reports/jacoco/test/jacocoTestReport.xml"))
     }
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it) {
+                exclude(
+                    "**/model/**",
+                    "**/dto/**",
+                    "**/config/**",
+                    "**/metrics/**",
+                    "**/*Application*"
+                )
+            }
+        })
+    )
 }
