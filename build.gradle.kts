@@ -13,6 +13,11 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+extra["tomcat.version"] = "10.1.36"
+extra["spring-framework.version"] = "6.2.3"
+extra["jackson.version"] = "2.18.2"
+extra["logback.version"] = "1.5.16"
+
 repositories {
     mavenCentral()
 }
