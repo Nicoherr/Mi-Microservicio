@@ -22,6 +22,18 @@ repositories {
     mavenCentral()
 }
 
+configurations.all {
+    resolutionStrategy {
+        force("org.apache.tomcat.embed:tomcat-embed-core:10.1.36")
+        force("org.apache.tomcat.embed:tomcat-embed-websocket:10.1.36")
+        force("org.springframework:spring-core:6.2.3")
+        force("org.springframework:spring-web:6.2.3")
+        force("org.springframework:spring-webmvc:6.2.3")
+        force("com.fasterxml.jackson.core:jackson-databind:2.18.2")
+        force("ch.qos.logback:logback-classic:1.5.16")
+    }
+}
+
 dependencies {
     // Spring Boot Starters & BOM
     implementation(platform("org.springframework.boot:spring-boot-dependencies:3.4.4"))
