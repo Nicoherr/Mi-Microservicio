@@ -29,8 +29,14 @@ configurations.all {
         force("org.springframework:spring-core:6.2.3")
         force("org.springframework:spring-web:6.2.3")
         force("org.springframework:spring-webmvc:6.2.3")
+        force("org.springframework:spring-beans:6.2.3")
+        force("org.springframework:spring-context:6.2.3")
         force("com.fasterxml.jackson.core:jackson-databind:2.18.2")
+        force("com.fasterxml.jackson.core:jackson-core:2.18.2")
+        force("com.fasterxml.jackson.core:jackson-annotations:2.18.2")
         force("ch.qos.logback:logback-classic:1.5.16")
+        force("ch.qos.logback:logback-core:1.5.16")
+        force("org.yaml:snakeyaml:2.3")
     }
 }
 
