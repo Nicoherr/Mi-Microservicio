@@ -22,8 +22,13 @@ repositories {
     mavenCentral()
 }
 
+dependencyLocking {
+    lockAllConfigurations()
+}
+
 dependencies {
-    // Spring Boot Starters
+    // Spring Boot Starters & BOM
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.4.3"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
