@@ -26,7 +26,7 @@ dependencies {
 
     // Metrics & Observability
     implementation("io.micrometer:micrometer-registry-prometheus")
-    implementation("net.logstash.logback:logstash-logback-encoder:8.0")
+    implementation("net.logstash.logback:logstash-logback-encoder:9.0")
 
     // Database
     runtimeOnly("com.h2database:h2")
