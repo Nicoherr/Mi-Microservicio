@@ -13,31 +13,11 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
-extra["tomcat.version"] = "10.1.36"
-extra["spring-framework.version"] = "6.2.3"
-extra["jackson.version"] = "2.18.2"
-extra["logback.version"] = "1.5.16"
+extra["logback.version"] = "1.5.36"
+extra["jackson-bom.version"] = "2.18.12"
 
 repositories {
     mavenCentral()
-}
-
-configurations.all {
-    resolutionStrategy {
-        force("org.apache.tomcat.embed:tomcat-embed-core:10.1.36")
-        force("org.apache.tomcat.embed:tomcat-embed-websocket:10.1.36")
-        force("org.springframework:spring-core:6.2.3")
-        force("org.springframework:spring-web:6.2.3")
-        force("org.springframework:spring-webmvc:6.2.3")
-        force("org.springframework:spring-beans:6.2.3")
-        force("org.springframework:spring-context:6.2.3")
-        force("com.fasterxml.jackson.core:jackson-databind:2.18.2")
-        force("com.fasterxml.jackson.core:jackson-core:2.18.2")
-        force("com.fasterxml.jackson.core:jackson-annotations:2.18.2")
-        force("ch.qos.logback:logback-classic:1.5.16")
-        force("ch.qos.logback:logback-core:1.5.16")
-        force("org.yaml:snakeyaml:2.3")
-    }
 }
 
 dependencies {
