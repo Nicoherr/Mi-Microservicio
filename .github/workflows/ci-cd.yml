@@ -10,10 +10,15 @@ on:
       - develop
       - main
 
+permissions:
+  contents: read
+
 jobs:
   pipeline:
     name: Continuous Integration, Security & Deployment Pipeline
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       # Paso 1: Checkout del código y configuración de Java 17 + Gradle 8.14
       - name: 1. Checkout Source Code
