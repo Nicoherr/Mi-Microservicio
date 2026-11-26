@@ -28,8 +28,8 @@ spec:
         fsGroup: 1000
       containers:
         - name: product-service
-          image: product-service:1.0.0
-          imagePullPolicy: IfNotPresent
+          image: ghcr.io/nicoherr/mi-microservicio:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
               name: http
