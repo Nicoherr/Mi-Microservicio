@@ -45,7 +45,18 @@ jobs:
           name: jacoco-report
           path: build/reports/jacoco/test/jacocoTestReport.xml
 
-      # Paso 3: Análisis con SonarCloud (Bloqueante si falla el Quality Gate)
+      # Paso 3: Diagnóstico y Análisis con SonarCloud (Bloqueante si falla el Quality Gate)
+      - name: Verify SonarCloud Config & Secret
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          if [ -z "$SONAR_TOKEN" ]; then
+            echo "ERROR CRITICO: El secreto SONAR_TOKEN esta vacio en GitHub Secrets!"
+            exit 1
+          fi
+          echo "SONAR_TOKEN detectado correctamente (longitud: ${#SONAR_TOKEN} caracteres)"
+          grep -E "^sonar\.(projectKey|organization)=" sonar-project.properties
+
       - name: 3. SonarCloud Analysis & Quality Gate Enforcement
         uses: SonarSource/sonarcloud-github-action@master
         env:
