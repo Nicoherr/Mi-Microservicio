@@ -47,7 +47,7 @@ dependencies {
 
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.mockk:mockk:1.13.12")
+    testImplementation("io.mockk:mockk:1.14.12")
 }
 
 tasks.withType<KotlinCompile> {
