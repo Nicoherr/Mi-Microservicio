@@ -20,20 +20,20 @@ jobs:
     permissions:
       contents: read
     steps:
-      # Paso 1: Checkout del código y configuración de Java 17 + Gradle 8.14 (usando commit SHA completos)
+      # Paso 1: Checkout del código y configuración de Java 17 + Gradle 8.14
       - name: 1. Checkout Source Code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup JDK 17 (Temurin)
-        uses: actions/setup-java@3a4f6e1af504cf6a31855fa024c38057b561c9cc # v4.7.0
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
       - name: Setup Gradle 8.14
-        uses: gradle/actions/setup-gradle@94b500e2b5d431c2d0b5ed0e1ec07b1e428e0892 # v4.3.0
+        uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.14'
 
@@ -45,7 +45,7 @@ jobs:
         run: ls -lh build/reports/jacoco/test/jacocoTestReport.xml
 
       - name: Upload JaCoCo Coverage Artifact
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0ab8fb113a3 # v4.6.1
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: build/reports/jacoco/test/jacocoTestReport.xml
@@ -63,7 +63,7 @@ jobs:
           grep -E "^sonar\.(projectKey|organization)=" sonar-project.properties
 
       - name: 3. SonarCloud Analysis & Quality Gate Enforcement
-        uses: SonarSource/sonarcloud-github-action@e6e96eb82f1b40fd9a976159fa65fb74e92cf4bc # v3.1.0
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -73,7 +73,7 @@ jobs:
 
       # Paso 4: Configuración de Snyk CLI y Escaneo de Seguridad de Dependencias
       - name: Setup Snyk CLI
-        uses: snyk/actions/setup@8061827424615aed27914bfcf068095b6c8a30db # v1.0.0
+        uses: snyk/actions/setup@master
 
       - name: 4. Snyk Dependency Security Scan
         env:
