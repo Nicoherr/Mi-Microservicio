@@ -38,6 +38,17 @@ class GlobalExceptionHandlerTest {
     }
 
     @Test
+    fun `handleProductNotFound con mensaje nulo debe retornar mensaje por defecto`() {
+        val ex = Exception(null as String?)
+
+        val response = handler.handleProductNotFound(ex)
+
+        assertEquals(HttpStatus.NOT_FOUND, response.statusCode)
+        assertEquals(404, response.body?.status)
+        assertEquals("Recurso no encontrado", response.body?.message)
+    }
+
+    @Test
     fun `handleValidationErrors debe retornar status 400 BAD REQUEST con detalles de errores`() {
         val bindingResult = mockk<BindingResult>()
         val fieldError = FieldError("createProductRequest", "name", "El nombre no puede estar vacío")

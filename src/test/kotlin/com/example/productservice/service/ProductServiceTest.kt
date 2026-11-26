@@ -66,6 +66,16 @@ class ProductServiceTest {
     }
 
     @Test
+    fun `getAllProducts cuando id es nulo debe lanzar IllegalArgumentException`() {
+        val productWithNullId = Product(id = null, name = "Invalid", description = "Test", price = BigDecimal("10.00"), stock = 1)
+        every { productRepository.findAll() } returns listOf(productWithNullId)
+
+        assertThrows<IllegalArgumentException> {
+            productService.getAllProducts()
+        }
+    }
+
+    @Test
     fun `searchProductsByName debe retornar productos filtrados por nombre`() {
         every { productRepository.findByNameContainingIgnoreCase("Gaming") } returns listOf(sampleProduct)
 
