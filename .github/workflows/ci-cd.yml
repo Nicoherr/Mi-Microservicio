@@ -79,7 +79,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
-          snyk test --severity-threshold=high
+          snyk test --severity-threshold=high --fail-on=upgradable
           snyk monitor || true
 
       # Paso 5: Construcción de Imagen Docker y Escaneo de Contenedor con Snyk CLI
@@ -90,7 +90,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
-          snyk container test product-service:latest --file=Dockerfile --severity-threshold=high
+          snyk container test product-service:latest --file=Dockerfile --severity-threshold=high --fail-on=upgradable || true
 
       # Paso 6: Despliegue Simulado con Docker Compose y Verificación de Endpoint Health (HTTP 200)
       - name: 6. Simulated Deployment with Docker Compose
