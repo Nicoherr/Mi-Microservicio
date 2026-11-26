@@ -15,14 +15,15 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 extra["logback.version"] = "1.5.36"
 extra["jackson-bom.version"] = "2.18.12"
+extra["tomcat.version"] = "10.1.61"
+extra["micrometer.version"] = "1.16.7"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Spring Boot Starters & BOM
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.5.16"))
+    // Spring Boot Starters
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")

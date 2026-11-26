@@ -1,0 +1,62 @@
+version: v1.25.0
+ignore:
+  SNYK-JAVA-ORGGLASSFISHJAXB-20883142:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267072:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267073:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267075:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267077:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267078:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267079:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267098:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-22727152:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-22727191:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-22727208:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-22729029:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-22729051:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-22756767:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-22756768:
+    - '*':
+        reason: 'Spring Boot 3.5.x OSS EOL - requiere migración mayor a Spring Boot 4.0.x'
+        expires: 2027-02-24T00:00:00.000Z
