@@ -20,7 +20,7 @@ WORKDIR /app
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Copy compiled jar from builder stage
-COPY --from=builder /app/build/libs/*.jar app.jar
+COPY --from=builder /app/build/libs/product-service-0.0.1-SNAPSHOT.jar app.jar
 RUN chown -R appuser:appgroup /app
 
 USER appuser
