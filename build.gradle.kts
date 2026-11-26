@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.4.4"
+    id("org.springframework.boot") version "3.5.11"
     id("io.spring.dependency-management") version "1.1.7"
     kotlin("jvm") version "1.9.23"
     kotlin("plugin.spring") version "1.9.23"
@@ -13,10 +13,10 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
-extra["tomcat.version"] = "10.1.36"
-extra["spring-framework.version"] = "6.2.3"
-extra["jackson.version"] = "2.18.2"
-extra["logback.version"] = "1.5.16"
+extra["logback.version"] = "1.5.36"
+extra["jackson-bom.version"] = "2.18.12"
+extra["tomcat.version"] = "10.1.52"
+extra["spring-framework.version"] = "6.2.17"
 
 repositories {
     mavenCentral()
@@ -42,7 +42,7 @@ configurations.all {
 
 dependencies {
     // Spring Boot Starters & BOM
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.4.4"))
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.5.11"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
