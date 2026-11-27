@@ -29,11 +29,32 @@ spec:
       labels:
         app: prometheus
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+        fsGroup: 65534
       containers:
         - name: prometheus
           image: prom/prometheus:v2.47.2
           ports:
             - containerPort: 9090
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+              ephemeral-storage: "128Mi"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+              ephemeral-storage: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            runAsUser: 65534
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - name: config-volume
               mountPath: /etc/prometheus/
@@ -71,16 +92,49 @@ spec:
       labels:
         app: grafana
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 472
+        fsGroup: 472
       containers:
         - name: grafana
           image: grafana/grafana:11.2.0
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+              ephemeral-storage: "128Mi"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+              ephemeral-storage: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            runAsUser: 472
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: GF_SECURITY_ADMIN_USER
               value: "admin"
             - name: GF_SECURITY_ADMIN_PASSWORD
-              value: "admin"
+              valueFrom:
+                secretKeyRef:
+                  name: grafana-admin-secret
+                  key: admin-password
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-admin-secret
+  namespace: default
+type: Opaque
+stringData:
+  admin-password: "admin"
 ---
 apiVersion: v1
 kind: Service
